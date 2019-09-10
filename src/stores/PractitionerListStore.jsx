@@ -1,6 +1,5 @@
 import { configure, observable, action } from 'mobx';
-import GetData from '../services/GetData';
-import GET_PRACTITIONERS from '../Endpoints';
+import { GET_PRACTITIONERS } from '../Endpoints';
 
 configure({
     enforceActions: 'always',
@@ -20,8 +19,10 @@ class PractitionerListStore {
     };
 
     @action
-    getPractitionerList = () => {
-        GetData(GET_PRACTITIONERS)
+    fetchPractitionerList = () => {
+        fetch(GET_PRACTITIONERS, {
+            method: 'GET',
+            })
             .then(response => response.json())
             .then(responseJSON => {
                 this.setPractitionerList(responseJSON);

@@ -1,4 +1,4 @@
-const GetData = (url, data) => {
+export const GetData = (url, data) => {
     return fetch(url, {
         method: 'GET',
         body: JSON.stringify(data),

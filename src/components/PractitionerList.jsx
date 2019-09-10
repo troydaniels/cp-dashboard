@@ -7,15 +7,15 @@ import Practitioner from './Practitioner';
 class PractitionerList extends React.Component {
     constructor(props) {
         super(props);
-        practitionerListStore.getPractitionerList();
+        practitionerListStore.fetchPractitionerList();
     }
 
     render() {
         const { practitionerList } = practitionerListStore;
         return (
             <>
-                {practitionerList.map(({ name }) => (
-                    <Practitioner name={name} />
+                {practitionerList.map(({ name, id }) => (
+                    <Practitioner name={name} id={id} />
                 ))}
             </>
         );

@@ -6,6 +6,10 @@
 }
 
 .practitioner-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: 60px;
     background: #293942;
     border-left: 5px #6eb99b solid;
@@ -15,5 +19,24 @@
     color: white;
     font-size: 20pt;
     margin-left: 45px;
-    padding-top: 10px;
+}
+
+.summary-icon-container {
+    display: flex;
+    flex-direction: row;
+    width: 125px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+}
+
+.summary-icon  {
+    font-size: 30px;
+    color: #6eb99b;
+}
+
+.summary-text {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
 }
