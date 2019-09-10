@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import appointmentsStore from '../stores/AppointmentsStore';
 import AppointmentStatistics from './AppointmentStatistics';
+import AppointmentBreakdown from './AppointmentBreakdown';
 
 @observer
 class Appointments extends React.Component {
@@ -16,7 +17,10 @@ class Appointments extends React.Component {
     render() {
         const { practitionerID } = this.props;
         return (
-            <AppointmentStatistics practitionerID={practitionerID} />
+            <>
+                <AppointmentStatistics practitionerID={practitionerID} />
+                <AppointmentBreakdown practitionerID={practitionerID} />
+            </>
         );
     }
 }

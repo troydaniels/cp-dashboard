@@ -1,0 +1,46 @@
+.appointment-breakdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.appointment-breakdown-toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 100%;
+    background: #5b7878;
+    border: 1px #5b7878 solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.appointment-breakdown-text {
+    color: white;
+    font-weight: 500;
+}
+
+.breakdown-report-container {
+    display: flex;
+    flex-direction: row;
+    height: 276px;
+    width: 100%;
+    border-left: 1px #5b7878 solid;
+    border-right: 1px #5b7878 solid;
+    background: #f9f9f9;
+}
+
+.breakdown-information-container {
+    width: 250px;
+    background: white;
+    margin: 5px;
+}
+
+.breakdown-table-container {
+    width: 750px;
+    background: white;
+    margin: 5px;
+}

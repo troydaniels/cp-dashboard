@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TimeSeries, Index } from "pondjs";
+import { TimeSeries, Index, duration } from "pondjs";
 import { Charts, ChartContainer, ChartRow, YAxis, BarChart, Resizable, styler } from "react-timeseries-charts";
 import '../styles/AppointmentChart.css';
 
@@ -42,6 +42,7 @@ class AppointmentChart extends React.Component {
     static displayName = "BarChartExample";
 
     render() {
+        console.log("duration", duration)
         const style = styler([{ key: "precip", color: "#A5C8E1", selected: "#2CB1CF" }]);
 
         return (

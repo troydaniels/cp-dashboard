@@ -14,7 +14,6 @@ class AppointmentStatistics extends React.Component {
             appointmentGrowthData: [],
             costGrowthData: [],
             revenueGrowthData: [],
-
         }
     }
 
@@ -39,15 +38,24 @@ class AppointmentStatistics extends React.Component {
     }
 
     getAppointmentGrowthData = (appointments) => {
-
+        const {appointmentGrowthData} = this.state;
+        appointments.forEach(appointment => {
+            appointmentGrowthData.push([appointment.date, 1])
+        })
     };
 
-    getCostGrowthData = () => {
-
+    getCostGrowthData = (appointments) => {
+        const {costGrowthData} = this.state;
+        appointments.forEach(appointment => {
+            costGrowthData.push([appointment.date, 1])
+        })
     };
 
-    getRevenueGrowthData = () => {
-
+    getRevenueGrowthData = (appointments) => {
+        const {revenueGrowthData} = this.state;
+        appointments.forEach(appointment => {
+            revenueGrowthData.push([appointment.date, 1])
+        })
     };
 
     render() {
