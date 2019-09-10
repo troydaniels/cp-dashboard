@@ -6,9 +6,8 @@ const GetData = (url, data) => {
         .then(response => {
             if (response.ok) {
                 return response;
-            } else {
-                throw Error(response.statusText);
             }
+            throw Error(response.statusText);
         })
         .catch(error => console.error(error));
 };
