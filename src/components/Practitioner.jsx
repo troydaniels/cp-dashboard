@@ -1,14 +1,17 @@
 import React from 'react';
+import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 import '../styles/Practitioner.css';
 import PractitionerChart from './PractitionerChart';
 
+@observer
 class Practitioner extends React.Component {
-    render = () => {
-        const practitioner = 'Dr Phillip Morris';
+    render() {
+        const { name } = this.props;
         return (
             <div className="practitioner-container">
                 <div className="practitioner-header">
-                    <div className="practitioner-name">{practitioner}</div>
+                    <div className="practitioner-name">{name}</div>
                 </div>
                 <div className="practitioner-statistics-container">
                     <div className="practitioner-statistics total-appointments">
@@ -29,7 +32,11 @@ class Practitioner extends React.Component {
                 </div>
             </div>
         );
-    };
+    }
 }
+
+Practitioner.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
 export default Practitioner;

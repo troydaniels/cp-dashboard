@@ -1,6 +1,7 @@
 .practitioner-container {
     width: 1000px;
     margin: auto;
+    clear: left;
 }
 
 .practitioner-header {

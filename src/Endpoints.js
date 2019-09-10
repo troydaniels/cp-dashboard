@@ -1,1 +1,3 @@
-export const GET_PRACTITIONERS = 'http://127.0.0.1:3000/practitioners';
+const GET_PRACTITIONERS = 'http://localhost:3000/practitioners';
+
+export default GET_PRACTITIONERS;

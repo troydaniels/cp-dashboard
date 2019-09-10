@@ -1,18 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import Practitioner from '../components/Practitioner';
-import appStore from '../stores/AppStore';
+import PractitionerList from '../components/PractitionerList';
 import '../styles/App.css';
 
 @observer
 class App extends React.Component {
-    componentWillMount = () => {
-        appStore.getPractitionerData();
-    };
-
-    render = () => {
-        return <Practitioner />;
-    };
+    render() {
+        return <PractitionerList />;
+    }
 }
 
 export default App;
