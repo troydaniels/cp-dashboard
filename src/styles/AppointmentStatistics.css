@@ -1,0 +1,37 @@
+.appointment-statistics-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 250px;
+    background: #f9f9f9;
+}
+
+.appointment-statistics {
+    width: 24%;
+    height: 95%;
+    background: white;
+    align-self: center;
+}
+
+.total-appointments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #6eb99b;
+}
+
+.total-appointments-value {
+    flex: 6;
+    color: white;
+    font-size: 85px;
+}
+
+.total-appointments-text {
+    flex: 2;
+    align-self: flex-start;
+    margin-top: 10px;
+    margin-left: 10px;
+    color: white;
+    font-weight: 600;
+}
