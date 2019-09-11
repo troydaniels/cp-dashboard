@@ -13,6 +13,7 @@
     height: 60px;
     background: #293942;
     border-left: 5px #6eb99b solid;
+    cursor: pointer;
 }
 
 .practitioner-name {

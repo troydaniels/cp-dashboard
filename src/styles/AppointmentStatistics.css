@@ -30,3 +30,15 @@
     color: white;
     font-weight: 500;
 }
+
+.rt-tr-group {
+    cursor: pointer;
+}
+
+.rt-tr-group:hover {
+    background: #d3d3d355;
+}
+
+.rt-tr-group:active {
+    background: #d3d3d3;
+}
