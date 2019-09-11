@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { toJS } from 'mobx';
+import FadeLoader from 'react-spinners/FadeLoader';
 import '../styles/AppointmentStatistics.css';
 import { autorun } from 'mobx';
 import AppointmentChart from './AppointmentChart';
@@ -42,14 +42,15 @@ class AppointmentStatistics extends React.Component {
     }
 
     getStatisticsTotals = appointments => {
-        let totalCost = 0, totalRevenue = 0;
+        let totalCost = 0,
+            totalRevenue = 0;
         this.setState({ totalAppointments: appointments.length });
         appointments.forEach(appointment => {
             const { cost, revenue } = appointment;
             totalCost += cost;
-            totalRevenue += revenue
+            totalRevenue += revenue;
         });
-        this.setState({totalCost, totalRevenue});
+        this.setState({ totalCost, totalRevenue });
     };
 
     getAppointmentGrowthData = appointments => {
@@ -85,24 +86,26 @@ class AppointmentStatistics extends React.Component {
         return (
             <div className="appointment-statistics-container">
                 <div className="appointment-statistics appointment-statistics-totals">
-                    <div className="total-text">
-                        TOTAL APPOINTMENTS
-                    </div>
-                    <div className="total-value">
-                        {totalAppointments}
-                    </div>
-                    <div className="total-text">
-                        TOTAL COST
-                    </div>
-                    <div className="total-value">
-                        ${totalCost}
-                    </div>
-                    <div className="total-text">
-                        TOTAL REVENUE
-                    </div>
-                    <div className="total-value">
-                        ${totalRevenue}
-                    </div>
+                    {!totalAppointments && (
+                        <FadeLoader
+                            sizeUnit={'px'}
+                            size={150}
+                            color={'#ffffff'}
+                            loading={true}
+                        />
+                    )}
+                    {totalAppointments && (
+                        <>
+                            <div className="total-text">TOTAL APPOINTMENTS</div>
+                            <div className="total-value">
+                                {totalAppointments}
+                            </div>
+                            <div className="total-text">TOTAL COST</div>
+                            <div className="total-value">${totalCost}</div>
+                            <div className="total-text">TOTAL REVENUE</div>
+                            <div className="total-value">${totalRevenue}</div>
+                        </>
+                    )}
                 </div>
                 <div className="appointment-statistics">
                     {appointmentGrowthData.length !== 0 && (

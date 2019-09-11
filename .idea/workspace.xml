@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4bd1bf83-d638-4128-8919-f7f336fed6da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Endpoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Endpoints.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppointmentBreakdown.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppointmentBreakdown.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AppointmentStatistics.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppointmentStatistics.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Appointments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Practitioner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Practitioner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/AppointmentsStore.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/AppointmentsStore.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stores/PractitionerListStore.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stores/PractitionerListStore.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/AppointmentStatistics.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/AppointmentStatistics.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,6 +17,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="406">
+              <caret line="142" column="9" lean-forward="true" selection-start-line="142" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Header.jsx">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,11 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/AppointmentStatistics.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="983">
-              <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="62">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -110,15 +108,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/Header.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/AppointmentBreakdown.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="39">
@@ -139,7 +128,6 @@
       <find>type =</find>
       <find>type ===</find>
       <find>babel-preset-react-app</find>
-      <find>babel</find>
       <find>&quot;babel</find>
       <find>jest</find>
       <find>eslintConfig</find>
@@ -164,6 +152,7 @@
       <find>timeRange</find>
       <find>style</find>
       <find>logo192</find>
+      <find>babel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/components/PractitionerChart.js" />
         <option value="$PROJECT_DIR$/ApiClient.js" />
         <option value="$PROJECT_DIR$/src/services/ApiClient.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/PractitionerChart.jsx" />
         <option value="$PROJECT_DIR$/config/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/stores/PractitionerStore.jsx" />
@@ -209,6 +197,7 @@
         <option value="$PROJECT_DIR$/src/styles/Header.css" />
         <option value="$PROJECT_DIR$/src/components/AppointmentBreakdown.jsx" />
         <option value="$PROJECT_DIR$/src/styles/AppointmentStatistics.css" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/AppointmentStatistics.jsx" />
       </list>
     </option>
@@ -312,12 +301,12 @@
       <workItem from="1568079690534" duration="259000" />
       <workItem from="1568080115105" duration="80000" />
       <workItem from="1568080198178" duration="39088000" />
-      <workItem from="1568129294024" duration="18481000" />
+      <workItem from="1568129294024" duration="19561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57908000" />
+    <option name="totallyTimeSpent" value="58988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -345,8 +334,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3292517" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5003524" side_tool="true" visible="true" weight="0.26666668" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49964765" visible="true" weight="0.26666668" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010571" side_tool="true" weight="0.26666668" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4989429" visible="true" weight="0.26666668" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -450,13 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2355">
           <caret line="566" column="4" selection-start-line="566" selection-start-column="4" selection-end-line="566" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -675,13 +657,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="142" column="9" lean-forward="true" selection-start-line="142" selection-start-column="9" selection-end-line="142" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/AppointmentStatistics.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="51" column="14" selection-start-line="51" selection-start-column="14" selection-end-line="51" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="62">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
