@@ -1,5 +1,6 @@
 import { configure, observable, action } from 'mobx';
 import { GET_APPOINTMENTS } from '../Endpoints';
+import appStore from './AppStore';
 
 configure({
     enforceActions: 'always',
@@ -19,25 +20,24 @@ class AppointmentsStore {
     };
 
     @action
-    fetchAppointments = (practitionerID, requestedRefresh = false) => {
-        // Lets only fetch if we dont have values for the given practitionerID in our map
-        // or if the user has explicitly requested a refresh of the data, to be nice to our
-        // server, and save requesting the same information
-        const noAppointmentData = !this.appointmentMap.get(practitionerID);
-        if (noAppointmentData || requestedRefresh) {
-            fetch(GET_APPOINTMENTS, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ practitioner_id: practitionerID }),
+    fetchAppointments = practitionerID => {
+        const { startDate, endDate } = appStore;
+        fetch(GET_APPOINTMENTS, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                practitioner_id: practitionerID,
+                start_date: startDate,
+                end_date: endDate,
+            }),
+        })
+            .then(response => response.json())
+            .then(responseJSON => {
+                this.setAppointments(practitionerID, responseJSON);
             })
-                .then(response => response.json())
-                .then(responseJSON => {
-                    this.setAppointments(practitionerID, responseJSON);
-                })
-                .catch(error => console.error(error));
-        }
+            .catch(error => console.error(error));
     };
 }
 

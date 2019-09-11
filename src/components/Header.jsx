@@ -1,22 +1,18 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
+import appStore from '../stores/AppStore';
 import '../styles/Header.css';
 import logo from '../images/coreplus_logo.png';
 
 @observer
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: [new Date(), new Date()],
-        };
-    }
-
-    onChange = date => this.setState({ date });
+    onChange = date => {
+        appStore.setDateRange(date);
+    };
 
     render() {
-        const { date } = this.state;
+        const { startDate, endDate } = appStore;
         return (
             <div className="header-container">
                 <div className="logo-container">
@@ -28,7 +24,8 @@ class Header extends React.Component {
                         <DateRangePicker
                             className="date-range-picker"
                             onChange={this.onChange}
-                            value={date}
+                            value={[startDate, endDate]}
+                            format="d-M-y"
                         />
                     </div>
                     <div className="report-title">

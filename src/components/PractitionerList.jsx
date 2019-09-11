@@ -10,6 +10,10 @@ class PractitionerList extends React.Component {
         practitionerListStore.fetchPractitionerList();
     }
 
+    componentWillUnmount() {
+        practitionerListStore.resetStore();
+    }
+
     render() {
         const { practitionerList } = practitionerListStore;
         return (

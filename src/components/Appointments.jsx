@@ -9,9 +9,12 @@ import AppointmentBreakdown from './AppointmentBreakdown';
 class Appointments extends React.Component {
     constructor(props) {
         super(props);
-
         const { practitionerID } = this.props;
         appointmentsStore.fetchAppointments(practitionerID);
+    }
+
+    componentDidMount() {
+        appointmentsStore.resetStore();
     }
 
     render() {

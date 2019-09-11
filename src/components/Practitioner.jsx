@@ -7,15 +7,39 @@ import {
     faChevronCircleUp,
 } from '@fortawesome/free-solid-svg-icons';
 import '../styles/Practitioner.css';
+import { autorun } from 'mobx';
 import Appointments from './Appointments';
+import appStore from '../stores/AppStore';
 
 @observer
 class Practitioner extends React.Component {
     constructor(props) {
         super(props);
+        const { startDate, endDate } = appStore;
         this.state = {
             showReport: false,
+            cachedStartDate: startDate,
+            cachedEndDate: endDate,
         };
+    }
+
+    componentDidMount() {
+        // If our date range changes, lets close the summary report
+        this.dispose = autorun(() => {
+            const { startDate, endDate } = appStore;
+            const { cachedStartDate, cachedEndDate } = this.state;
+            if (startDate !== cachedStartDate || endDate !== cachedEndDate) {
+                this.setState({
+                    showReport: false,
+                    cachedStartDate: startDate,
+                    cachedEndDate: endDate,
+                });
+            }
+        });
+    }
+
+    componentWillUnmount() {
+        this.dispose && this.dispose();
     }
 
     handleClick = () => {

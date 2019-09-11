@@ -37,7 +37,7 @@ class AppointmentStatistics extends React.Component {
             if (appointments !== undefined) {
                 this.getStatisticsTotals(appointments);
 
-                // For graphing purposes, lets first group our appointments by month
+                // For graphing purpox  ses, lets first group our appointments by month
                 const groupedAppointments = lodash.groupBy(
                     appointments,
                     appointment => moment(appointment.date).startOf('month'),
@@ -164,7 +164,7 @@ class AppointmentStatistics extends React.Component {
         return (
             <div className="appointment-statistics-container">
                 <div className="appointment-statistics appointment-statistics-totals">
-                    {!totalAppointments && (
+                    {totalAppointments === null && (
                         <FadeLoader
                             sizeUnit="px"
                             size={150}
@@ -172,7 +172,7 @@ class AppointmentStatistics extends React.Component {
                             loading
                         />
                     )}
-                    {totalAppointments && (
+                    {totalAppointments !== null && (
                         <>
                             <div className="total-text">TOTAL APPOINTMENTS</div>
                             <div className="total-value">
