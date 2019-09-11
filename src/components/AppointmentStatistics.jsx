@@ -1,5 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import moment from 'moment';
+import lodash from 'lodash';
 import PropTypes from 'prop-types';
 import FadeLoader from 'react-spinners/FadeLoader';
 import '../styles/AppointmentStatistics.css';
@@ -18,6 +20,9 @@ class AppointmentStatistics extends React.Component {
             appointmentGrowthData: [],
             costGrowthData: [],
             revenueGrowthData: [],
+            maxGrowth: null,
+            maxCost: null,
+            maxRevenue: null,
         };
     }
 
@@ -31,9 +36,17 @@ class AppointmentStatistics extends React.Component {
             );
             if (appointments !== undefined) {
                 this.getStatisticsTotals(appointments);
-                this.getAppointmentGrowthData(appointments);
-                this.getCostGrowthData(appointments);
-                this.getRevenueGrowthData(appointments);
+
+                // For graphing purposes, lets first group our appointments by month
+                const groupedAppointments = lodash.groupBy(
+                    appointments,
+                    appointment => moment(appointment.date).startOf('month'),
+                );
+
+                console.log('groupedAppointments', groupedAppointments);
+                this.getAppointmentGrowthData(groupedAppointments);
+                this.getCostGrowthData(groupedAppointments);
+                this.getRevenueGrowthData(groupedAppointments);
             }
         });
     }
@@ -54,25 +67,86 @@ class AppointmentStatistics extends React.Component {
         this.setState({ totalCost, totalRevenue });
     };
 
-    getAppointmentGrowthData = appointments => {
+    getAppointmentGrowthData = groupedAppointments => {
         const { appointmentGrowthData } = this.state;
-        appointments.forEach(appointment => {
-            appointmentGrowthData.push([appointment.date, 1]);
+        let maxGrowth = null;
+
+        // ESlint really doesnt want me to use this for..in loop
+        // however I'm explicitly checking for properties
+        // eslint-disable-next-line no-restricted-syntax, no-unused-vars
+        for (const key in groupedAppointments) {
+            // eslint-disable-next-line no-prototype-builtins
+            if (groupedAppointments.hasOwnProperty(key)) {
+                // The height of each bar is simply the number of appointments in that month
+                appointmentGrowthData.push([
+                    key,
+                    groupedAppointments[key].length,
+                ]);
+            }
+        }
+        // Lets find the vertical scale for our graph
+        appointmentGrowthData.forEach(entry => {
+            if (entry[1] > maxGrowth) {
+                [, maxGrowth] = entry;
+            }
         });
+        this.setState({ maxGrowth });
     };
 
-    getCostGrowthData = appointments => {
+    getCostGrowthData = groupedAppointments => {
         const { costGrowthData } = this.state;
-        appointments.forEach(appointment => {
-            costGrowthData.push([appointment.date, appointment.cost]);
+        let maxCost = null;
+
+        // eslint-disable-next-line no-restricted-syntax, no-unused-vars
+        for (const key in groupedAppointments) {
+            // eslint-disable-next-line no-prototype-builtins
+            if (groupedAppointments.hasOwnProperty(key)) {
+                // The height of each bar is the sum of the appointment costs that month
+                let sum = 0;
+                for (
+                    let i = 0, { length } = groupedAppointments[key];
+                    i < length;
+                    i += 1
+                ) {
+                    sum += groupedAppointments[key][i].cost;
+                }
+                costGrowthData.push([key, sum]);
+            }
+        }
+        costGrowthData.forEach(entry => {
+            if (entry[1] > maxCost) {
+                [, maxCost] = entry;
+            }
         });
+        this.setState({ maxCost });
     };
 
-    getRevenueGrowthData = appointments => {
+    getRevenueGrowthData = groupedAppointments => {
         const { revenueGrowthData } = this.state;
-        appointments.forEach(appointment => {
-            revenueGrowthData.push([appointment.date, appointment.revenue]);
+        let maxRevenue = null;
+
+        // eslint-disable-next-line no-restricted-syntax, no-unused-vars
+        for (const key in groupedAppointments) {
+            // eslint-disable-next-line no-prototype-builtins
+            if (groupedAppointments.hasOwnProperty(key)) {
+                // The height of each bar is the sum of the appointment revenue that month
+                let sum = 0;
+                for (
+                    let i = 0, { length } = groupedAppointments[key];
+                    i < length;
+                    i += 1
+                ) {
+                    sum += groupedAppointments[key][i].revenue;
+                }
+                revenueGrowthData.push([key, sum]);
+            }
+        }
+        revenueGrowthData.forEach(entry => {
+            if (entry[1] > maxRevenue) {
+                [, maxRevenue] = entry;
+            }
         });
+        this.setState({ maxRevenue });
     };
 
     render() {
@@ -83,6 +157,9 @@ class AppointmentStatistics extends React.Component {
             appointmentGrowthData,
             costGrowthData,
             revenueGrowthData,
+            maxGrowth,
+            maxCost,
+            maxRevenue,
         } = this.state;
         return (
             <div className="appointment-statistics-container">
@@ -111,27 +188,33 @@ class AppointmentStatistics extends React.Component {
                 <div className="appointment-statistics">
                     {appointmentGrowthData.length !== 0 && (
                         <AppointmentChart
-                            title="appointments"
+                            title="APPOINTMENTS"
                             data={appointmentGrowthData}
                             yAxis="appointments"
+                            yAxisLabel="Monthly Appointments"
+                            max={maxGrowth}
                         />
                     )}
                 </div>
                 <div className="appointment-statistics">
                     {costGrowthData.length !== 0 && (
                         <AppointmentChart
-                            title="cost"
+                            title="COST"
                             data={costGrowthData}
                             yAxis="cost"
+                            yAxisLabel="Monthly Cost in $"
+                            max={maxCost}
                         />
                     )}
                 </div>
                 <div className="appointment-statistics">
                     {revenueGrowthData.length !== 0 && (
                         <AppointmentChart
-                            title="revenue"
+                            title="REVENUE"
                             data={revenueGrowthData}
                             yAxis="revenue"
+                            yAxisLabel="Monthly Revenue in $"
+                            max={maxRevenue}
                         />
                     )}
                 </div>
