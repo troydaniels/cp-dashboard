@@ -41,28 +41,26 @@ class AppointmentStatistics extends React.Component {
         const {appointmentGrowthData} = this.state;
         appointments.forEach(appointment => {
             appointmentGrowthData.push([appointment.date, 1])
-        })
+        });
     };
 
     getCostGrowthData = (appointments) => {
         const {costGrowthData} = this.state;
         appointments.forEach(appointment => {
-            costGrowthData.push([appointment.date, 1])
-        })
+            costGrowthData.push([appointment.date, appointment.cost])
+        });
     };
 
     getRevenueGrowthData = (appointments) => {
         const {revenueGrowthData} = this.state;
         appointments.forEach(appointment => {
-            revenueGrowthData.push([appointment.date, 1])
+            revenueGrowthData.push([appointment.date, appointment.revenue])
         })
     };
 
     render() {
-        const {practitionerID} = this.props;
-        const { totalAppointments } = this.state;
-        const appointments = appointmentsStore.appointmentMap.get(practitionerID);
-
+        const { totalAppointments, appointmentGrowthData, costGrowthData, revenueGrowthData } = this.state;
+        console.log("revenueGrowthData.length", revenueGrowthData.length!==0)
         return (
             <div className="appointment-statistics-container">
                 <div className="appointment-statistics total-appointments">
@@ -72,13 +70,19 @@ class AppointmentStatistics extends React.Component {
                     <div className="total-appointments-value">{totalAppointments}</div>
                 </div>
                 <div className="appointment-statistics">
-                    <AppointmentChart title="appointments" type="bar" appointments={appointments}/>
+                    {appointmentGrowthData.length !== 0 && (
+                    <AppointmentChart title="appointments" data={appointmentGrowthData} yAxis="appointments"/>
+                    )}
                 </div>
                 <div className="appointment-statistics">
-                    <AppointmentChart title="cost" type="line" appointments={appointments}/>
+                    {costGrowthData.length !== 0 && (
+                    <AppointmentChart title="cost" data={costGrowthData} yAxis="cost"/>
+                    )}
                 </div>
                 <div className="appointment-statistics">
-                    <AppointmentChart title="revenue" type="line" appointments={appointments}/>
+                    {revenueGrowthData.length !== 0 && (
+                    <AppointmentChart title="revenue" data={revenueGrowthData} yAxis="revenue"/>
+                    )}
                 </div>
             </div>
         );

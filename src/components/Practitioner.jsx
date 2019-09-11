@@ -3,7 +3,6 @@ import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
-
 import '../styles/Practitioner.css';
 import Appointments from "./Appointments";
 
