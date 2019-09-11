@@ -22,7 +22,7 @@ class PractitionerListStore {
     fetchPractitionerList = () => {
         fetch(GET_PRACTITIONERS, {
             method: 'GET',
-            })
+        })
             .then(response => response.json())
             .then(responseJSON => {
                 this.setPractitionerList(responseJSON);

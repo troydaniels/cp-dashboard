@@ -13,7 +13,7 @@
     align-self: center;
 }
 
-.total-appointments {
+.appointment-statistics-totals {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -21,17 +21,12 @@
     background: #6eb99b;
 }
 
-.total-appointments-value {
-    flex: 6;
+.total-value {
     color: white;
-    font-size: 85px;
+    font-size: 40px;
 }
 
-.total-appointments-text {
-    flex: 2;
-    align-self: flex-start;
-    margin-top: 10px;
-    margin-left: 10px;
+.total-text {
     color: white;
-    font-weight: 600;
+    font-weight: 500;
 }
