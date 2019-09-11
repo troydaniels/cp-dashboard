@@ -35,6 +35,9 @@ class AppointmentBreakdown extends React.Component {
                         {props.value}
                     </Moment>
                 ),
+                sortMethod: (a, b) => {
+                    return new Date(a) - new Date(b);
+                }
             },
             {
                 Header: 'Cost',
@@ -56,6 +59,12 @@ class AppointmentBreakdown extends React.Component {
                                 data={appointments}
                                 columns={columns}
                                 defaultPageSize={6}
+                                defaultSorted={[
+                                    {
+                                        id: "date",
+                                        desc: true
+                                    }
+                                ]}
                                 showPageSizeOptions={false}
                             />
                         </div>
