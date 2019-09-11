@@ -16,6 +16,7 @@ class Header extends React.Component {
     onChange = date => this.setState({ date });
 
     render() {
+        const { date } = this.state;
         return (
             <div className="header-container">
                 <div className="logo-container">
@@ -27,7 +28,7 @@ class Header extends React.Component {
                         <DateRangePicker
                             className="date-range-picker"
                             onChange={this.onChange}
-                            value={this.state.date}
+                            value={date}
                         />
                     </div>
                     <div className="report-title">

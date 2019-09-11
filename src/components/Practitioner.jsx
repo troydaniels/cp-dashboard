@@ -28,6 +28,7 @@ class Practitioner extends React.Component {
         const { showReport } = this.state;
         return (
             <div className="practitioner-container">
+                {/* eslint-disable-next-line  jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
                 <div
                     className="practitioner-header"
                     onClick={() => this.handleClick()}
@@ -53,6 +54,7 @@ class Practitioner extends React.Component {
 
 Practitioner.propTypes = {
     name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
 };
 
 export default Practitioner;

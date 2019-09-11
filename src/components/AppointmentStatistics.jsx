@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 import FadeLoader from 'react-spinners/FadeLoader';
 import '../styles/AppointmentStatistics.css';
 import { autorun } from 'mobx';
@@ -42,8 +43,8 @@ class AppointmentStatistics extends React.Component {
     }
 
     getStatisticsTotals = appointments => {
-        let totalCost = 0,
-            totalRevenue = 0;
+        let totalCost = 0;
+        let totalRevenue = 0;
         this.setState({ totalAppointments: appointments.length });
         appointments.forEach(appointment => {
             const { cost, revenue } = appointment;
@@ -88,10 +89,10 @@ class AppointmentStatistics extends React.Component {
                 <div className="appointment-statistics appointment-statistics-totals">
                     {!totalAppointments && (
                         <FadeLoader
-                            sizeUnit={'px'}
+                            sizeUnit="px"
                             size={150}
-                            color={'#ffffff'}
-                            loading={true}
+                            color="#ffffff"
+                            loading
                         />
                     )}
                     {totalAppointments && (
@@ -138,5 +139,9 @@ class AppointmentStatistics extends React.Component {
         );
     }
 }
+
+AppointmentStatistics.propTypes = {
+    practitionerID: PropTypes.number.isRequired,
+};
 
 export default AppointmentStatistics;

@@ -1,4 +1,4 @@
-import { configure, observable, action, toJS } from 'mobx';
+import { configure, observable, action } from 'mobx';
 import { GET_APPOINTMENTS } from '../Endpoints';
 
 configure({
@@ -35,7 +35,6 @@ class AppointmentsStore {
                 .then(response => response.json())
                 .then(responseJSON => {
                     this.setAppointments(practitionerID, responseJSON);
-                    console.log('responseJSON', responseJSON);
                 })
                 .catch(error => console.error(error));
         }
