@@ -37,13 +37,12 @@ class AppointmentStatistics extends React.Component {
             if (appointments !== undefined) {
                 this.getStatisticsTotals(appointments);
 
-                // For graphing purpox  ses, lets first group our appointments by month
+                // For graphing purposes, lets first group our appointments by month
                 const groupedAppointments = lodash.groupBy(
                     appointments,
                     appointment => moment(appointment.date).startOf('month'),
                 );
 
-                console.log('groupedAppointments', groupedAppointments);
                 this.getAppointmentGrowthData(groupedAppointments);
                 this.getCostGrowthData(groupedAppointments);
                 this.getRevenueGrowthData(groupedAppointments);
@@ -53,6 +52,7 @@ class AppointmentStatistics extends React.Component {
 
     componentWillUnmount() {
         this.dispose && this.dispose();
+        appointmentsStore.resetStore();
     }
 
     getStatisticsTotals = appointments => {
